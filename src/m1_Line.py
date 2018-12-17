@@ -4,8 +4,8 @@ NOTE: This is NOT rosegraphics -- it is your OWN Line class.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Eddie Mannan.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import math
 import m1t_test_Line as m1t
@@ -17,7 +17,7 @@ import m1t_test_Line as m1t
 ###############################################################################
 
 # -----------------------------------------------------------------------------
-# TODO: 2.  Right-click on the  src  folder and
+# DONE: 2.  Right-click on the  src  folder and
 #               Mark Directory as ... Sources Root,
 #           if you have not already done so.
 #
@@ -90,6 +90,7 @@ class Point(object):
         """ Sets instance variables  x  and  y  to the given coordinates. """
         self.x = x
         self.y = y
+        self.clones = 0
 
     def __repr__(self):
         """
@@ -129,6 +130,7 @@ class Point(object):
 
     def clone(self):
         """  Returns a new Point at the same (x, y) as this Point. """
+        self.clones += 1
         return Point(self.x, self.y)
 
     def distance_from(self, p2):
@@ -216,8 +218,11 @@ class Line(object):
           :type start: Point
           :type end:   Point
         """
+        self.start = start.clone()
+        self.end = end.clone()
+
         # ---------------------------------------------------------------------
-        # TODO: 3.
+        # DONE: 3.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -325,8 +330,10 @@ class Line(object):
         Type hints:
           :rtype: Line
         """
+        newline = Line(self.start, self.end)
+        return newline
         # ---------------------------------------------------------------------
-        # TODO: 4.
+        # DONE: 4.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -334,7 +341,6 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # ---------------------------------------------------------------------
-
     def reverse(self):
         """
         What comes in:
@@ -359,8 +365,11 @@ class Line(object):
             line1.reverse()
             print(line1 == line2)    # Should now print: True
         """
+        self.newstart = self.start
+        self.start = self.end
+        self.end = self.newstart
         # ---------------------------------------------------------------------
-        # TODO: 5.
+        # DONE: 5.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -395,8 +404,11 @@ class Line(object):
         Type hints:
           :rtype: float
         """
+        if self.start.x - self.end.x == 0:
+            return math.inf
+        return (self.start.y - self.end.y) / (self.start.x - self.end.x)
         # ---------------------------------------------------------------------
-        # TODO: 6.
+        # DONE: 6.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -428,8 +440,9 @@ class Line(object):
         Type hints:
           :rtype: float
         """
+        return math.sqrt((self.start.x - self.end.x) ** 2 + (self.start.y - self.end.y) ** 2)
         # ---------------------------------------------------------------------
-        # TODO: 7.
+        # DONE: 7.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -468,8 +481,10 @@ class Line(object):
         Type hints:
           :rtype: int:
         """
+        return self.start.clones
+
         # ---------------------------------------------------------------------
-        # TODO: 8.
+        # DONE: 8.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -502,6 +517,9 @@ class Line(object):
           :type  other_line: Line
           :rtype: Line:
         """
+        newlinestart = Point(self.start.x + other_line.start.x, self.start.y + other_line.start.y)
+        newlineend = Point(self.end.x + other_line.end.x, self.end.y + other_line.end.y)
+        return Line(newlinestart, newlineend)
         # ---------------------------------------------------------------------
         # TODO: 9.
         #   a. READ the above specification, including the Example.
