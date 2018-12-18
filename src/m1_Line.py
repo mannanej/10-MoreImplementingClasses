@@ -521,7 +521,7 @@ class Line(object):
         newlineend = Point(self.end.x + other_line.end.x, self.end.y + other_line.end.y)
         return Line(newlinestart, newlineend)
         # ---------------------------------------------------------------------
-        # TODO: 9.
+        # DONE: 9.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -554,8 +554,11 @@ class Line(object):
           :type  other_line: Line
           :rtype: Line:
         """
+        newlinestart = Point(self.start.x - other_line.start.x, self.start.y - other_line.start.y)
+        newlineend = Point(self.end.x - other_line.end.x, self.end.y - other_line.end.y)
+        return Line(newlinestart, newlineend)
         # ---------------------------------------------------------------------
-        # TODO: 10.
+        # DONE: 10.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -581,6 +584,8 @@ class Line(object):
         Type hints:
           :rtype: Point
         """
+        return Point((self.start.x + self.end.x) / 2, (self.start.y + self.end.y) / 2)
+
         # ---------------------------------------------------------------------
         # TODO: 11.
         #   a. READ the above specification, including the Example.
