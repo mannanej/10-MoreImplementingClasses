@@ -108,6 +108,18 @@ def main():
 #
 ###############################################################################
 
+class Baby(object):
+    """Represents a baby"""
+
+    def __init__(self):
+        self.x =
+        self.y = y
+
+    def feed_baby(self):
+        return False
+
+    def hour_passes(self):
+        return False
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

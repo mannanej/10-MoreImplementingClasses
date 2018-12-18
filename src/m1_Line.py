@@ -587,7 +587,7 @@ class Line(object):
         return Point((self.start.x + self.end.x) / 2, (self.start.y + self.end.y) / 2)
 
         # ---------------------------------------------------------------------
-        # TODO: 11.
+        # DONE: 11.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -623,6 +623,12 @@ class Line(object):
           :type  line2: Line
           :rtype: bool
         """
+        slopeof1 = (self.end.y - self.start.y) / (self.end.x - self.start.x)
+        slopeof2 = (line2.end.y - line2.start.y) / (line2.end.x - line2.start.x)
+        if slopeof1 == slopeof2:
+            return True
+        else:
+            return False
         # ---------------------------------------------------------------------
         # TODO: 12.
         #   a. READ the above specification, including the Example.
