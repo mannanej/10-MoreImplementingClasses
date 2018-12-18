@@ -111,10 +111,11 @@ def main():
 class Baby(object):
     """Represents a baby"""
 
-    def __init__(self):
-        self.x =
+    def __init__(self, baby):
+        self.x = x
         self.y = y
-
+        mckinley =
+        keegan
     def feed_baby(self):
         return False
 
