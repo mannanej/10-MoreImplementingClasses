@@ -198,6 +198,8 @@ class CapitalT(object):
         self.v_rect = CapitalT(rg.Point(300, 50), 100, 200, 20)
         self.v_rect.attach_to(window)
         self.h_rect.attach_to(window)
+        window.render()
+        window.close_on_mouse_click()
         # ---------------------------------------------------------------------
         # TODO: 4.
         #   READ the above specification, including the Example.
