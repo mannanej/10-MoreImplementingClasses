@@ -161,14 +161,14 @@ class CapitalT(object):
           :type height:              int
           :type letter_thickness:    int
         """
-        hrectcn1 = rg.Point(intersection_center.x - (width / 2), (intersection_center.y - (width / 2)))
-        hrectcn2 = rg.Point(intersection_center.x + (intersection_center.x / 2), (intersection_center.y + (intersection_center.y / 2)))
-        self.h_rect = rg.Rectangle(hrectcn1, hrectcn2)
+        hrectcn1 = rg.Point(intersection_center.x - (width / 2), (intersection_center.y - (letter_thickness / 2)))
+        hrectcn2 = rg.Point(intersection_center.x + (width / 2), (intersection_center.y + (letter_thickness / 2)))
         vrectcn1 = rg.Point(intersection_center.x - (letter_thickness / 2), intersection_center.y - (letter_thickness / 2))
         vrectcn2 = rg.Point(intersection_center.x + (letter_thickness / 2), (intersection_center.y - (intersection_center.y / 2)) + height)
+        self.h_rect = rg.Rectangle(hrectcn1, hrectcn2)
         self.v_rect = rg.Rectangle(vrectcn1, vrectcn2)
         # ---------------------------------------------------------------------
-        # TODO: 3.
+        # DONE: 3.
         #   READ the above specification, including the Example.
         #   Implement this method, using the instance variables
         #      h_rect
@@ -195,7 +195,6 @@ class CapitalT(object):
         Type hints:
           :type window: rg.RoseWindow
         """
-        self.v_rect = CapitalT(rg.Point(300, 50), 100, 200, 20)
         self.v_rect.attach_to(window)
         self.h_rect.attach_to(window)
         window.render()
