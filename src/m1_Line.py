@@ -218,6 +218,8 @@ class Line(object):
           :type start: Point
           :type end:   Point
         """
+        self.originalstart = start
+        self.originalend = end
         self.start = start.clone()
         self.end = end.clone()
 
@@ -623,14 +625,22 @@ class Line(object):
           :type  line2: Line
           :rtype: bool
         """
+        print(self.start, line2.start)
+        if self.start.x == self.end.x and line2.start.x == line2.end.x:
+            return True
+        elif self.start.x == self.end.x:
+            return False
+        elif line2.start.x == line2.end.x:
+            return False
         slopeof1 = (self.end.y - self.start.y) / (self.end.x - self.start.x)
         slopeof2 = (line2.end.y - line2.start.y) / (line2.end.x - line2.start.x)
-        if slopeof1 == slopeof2:
+        if round(slopeof1, 12) == round(slopeof2, 12):
             return True
         else:
             return False
+
         # ---------------------------------------------------------------------
-        # TODO: 12.
+        # DONE: 12.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -695,8 +705,11 @@ class Line(object):
             print(line1)  # Should print: Line[(-3, -4), (3, 4)]
             print(line2)  # Should print: Line[(0, 1), (10, 20)]
         """
+        self.start = self.originalstart
+        self.end = self.originalend
+        Line(self.start, self.end)
         # ---------------------------------------------------------------------
-        # TODO: 13.
+        # DONE: 13.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
