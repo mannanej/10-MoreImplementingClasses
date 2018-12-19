@@ -20,10 +20,10 @@ def main():
     print('Un-comment the calls in MAIN one by one')
     print(' to run the testing code as you complete the TODOs.')
 
-    run_test_simple_t()
-    # run_test_set_colors()
-    # run_test_move_by()
-    # run_test_clone()
+    #run_test_simple_t()
+    #run_test_set_colors()
+    #run_test_move_by()
+    run_test_clone()
 
 
 def run_test_simple_t():
@@ -164,7 +164,7 @@ class CapitalT(object):
         hrectcn1 = rg.Point(intersection_center.x - (width / 2), (intersection_center.y - (letter_thickness / 2)))
         hrectcn2 = rg.Point(intersection_center.x + (width / 2), (intersection_center.y + (letter_thickness / 2)))
         vrectcn1 = rg.Point(intersection_center.x - (letter_thickness / 2), intersection_center.y - (letter_thickness / 2))
-        vrectcn2 = rg.Point(intersection_center.x + (letter_thickness / 2), (intersection_center.y - (intersection_center.y / 2)) + height)
+        vrectcn2 = rg.Point(intersection_center.x + (letter_thickness / 2), (intersection_center.y - (letter_thickness / 2)) + height)
         self.h_rect = rg.Rectangle(hrectcn1, hrectcn2)
         self.v_rect = rg.Rectangle(vrectcn1, vrectcn2)
         # ---------------------------------------------------------------------
@@ -198,9 +198,9 @@ class CapitalT(object):
         self.v_rect.attach_to(window)
         self.h_rect.attach_to(window)
         window.render()
-        window.close_on_mouse_click()
+        window.continue_on_mouse_click()
         # ---------------------------------------------------------------------
-        # TODO: 4.
+        # DONE: 4.
         #   READ the above specification, including the Example.
         #   Implement this method, then TEST it by:
         #     a. Un-comment the call to its test function, in main.  Run.
@@ -231,8 +231,12 @@ class CapitalT(object):
           :type fill_color:    str
           :type outline_color: str
         """
+        self.v_rect.fill_color = fill_color
+        self.h_rect.fill_color = fill_color
+        self.v_rect.outline_color = outline_color
+        self.h_rect.outline_color = outline_color
         # ---------------------------------------------------------------------
-        # TODO: 5.
+        # DONE: 5.
         #   READ the above specification, including the Example.
         #   Implement this method, then TEST it by:
         #     a. Un-comment the call to its test function, in main.  Run.
@@ -264,8 +268,10 @@ class CapitalT(object):
           :type dx: int
           :type dy: int
         """
+        self.v_rect.move_by(dx, dy)
+        self.h_rect.move_by(dx, dy)
         # ---------------------------------------------------------------------
-        # TODO: 6.
+        # DONE: 6.
         #   READ the above specification, including the Example.
         #   Implement this method, then TEST it by:
         #     a. Un-comment the call to its test function, in main.  Run.
@@ -297,6 +303,7 @@ class CapitalT(object):
         Type hints:
           :rtype: CapitalT
         """
+
         # ---------------------------------------------------------------------
         # TODO: 7.
         #   READ the above specification, including the Example.
